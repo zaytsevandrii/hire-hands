@@ -1,0 +1,83 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 7;
+    box-shadow: 0 1px 10px rgb(0 0 0 / 29%);
+    background-color: #fff;
+    
+
+    .userName {
+        cursor: pointer;
+        display: flex;
+        margin-top: 2px;
+        align-items: center;
+        font-size: 16px;
+        justify-content: center;
+        color: #fff;
+        font-family: "Roboto", sans-serif;
+        border: 1px solid #fff;
+        border-radius: 20%;
+        margin-left: 15px;
+        width: 28px;
+        height: 28px;
+
+        @media (max-width: 991px) {
+        }
+    }
+    .left {
+        color: #fff;
+        font-size: 12px;
+        font-family: "Roboto", sans-serif;
+        display: flex;
+        flex-direction: row;
+
+        
+    }
+    .leftH {
+        position: relative;
+        top: -3px;
+        z-index: 111;
+    }
+    .center {
+        img {
+            cursor: pointer;
+        }
+    }
+
+    .right {
+        display: flex;
+        align-items: center;
+        .img1,
+        .img2 {
+            margin-left: 20px;
+            margin-top: 2px;
+        }
+
+        .cart {
+            display: flex;
+            position: relative;
+            margin-left: 20px;
+            width: 30px;
+            .img3 {
+                display: block;
+            }
+
+            p {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                left: 8px;
+                top: -10px;
+                background-color: blue;
+                border-radius: 50%;
+                color: #fff;
+                width: 20px;
+                height: 20px;
+            }
+        }
+        img {
+            cursor: pointer;
+        }
+    }
+}
