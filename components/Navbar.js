@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styles from "../styles/Navbar.module.scss"
 import Link from "next/link"
 import Image from "next/image"
@@ -11,6 +11,14 @@ const Navbar = () => {
     const openModal = () => {
         setOpen((prev) => !prev)
     }
+
+    useEffect(() => {
+        if (open) {
+            document.body.classList.add("stop-scrolling")
+        } else {
+            document.body.classList.remove("stop-scrolling")
+        }
+    }, [open])
     return (
         <>
             <div className={`${open && "overlay-show"}`}></div>
