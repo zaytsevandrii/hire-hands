@@ -6,7 +6,7 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap"
 import { toast } from "react-toastify"
 import Meta from "../components/Meta"
 import styles from "../styles/Register.module.scss"
-import { getError } from "./utils/error"
+import { getError } from "../utils/error"
 
 const RegisterForm = () => {
     const { data: session } = useSession()
