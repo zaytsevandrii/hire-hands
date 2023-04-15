@@ -4,12 +4,31 @@ import Link from "next/link"
 import Image from "next/image"
 import logo from "../public/logo.png"
 import Hamburger from "./Hamburger"
+import LoginModal from "./LoginModal"
+import { signOut, useSession } from "next-auth/react"
 
 const Navbar = () => {
+    const [showLoginModal, setShowLoginModal] = useState(false)
     const [open, setOpen] = useState(false)
-    const closeModal = () => {}
+    const { status, data: session } = useSession()
+
+    const closeModal = () => {
+        setTimeout(() => setOpen(false), 70)
+    }
     const openModal = () => {
         setOpen((prev) => !prev)
+    }
+
+    const allClose = () => {
+        setShowLoginModal(false)
+        setTimeout(() => setOpen(false), 70)
+    }
+    const handleLoginClick = () => {
+        setShowLoginModal(true)
+    }
+
+    const handleLoginClose = () => {
+        setShowLoginModal(false)
     }
 
     useEffect(() => {
@@ -80,13 +99,34 @@ const Navbar = () => {
                             <div className="col-4  d-flex align-items-center justify-content-end">
                                 <div className={styles.right}>
                                     <div className={styles.user}>
-                                        <Image src="/user.svg" alt="user" width={28} height={28} className={styles.img2} />
+                                        {status === "loading" ? (
+                                            <Image
+                                                src="/user.svg"
+                                                alt="user"
+                                                width={28}
+                                                height={28}
+                                                className={styles.img2}
+                                                onClick={handleLoginClick}
+                                            />
+                                        ) : session?.user ? (
+                                            session.user.name
+                                        ) : (
+                                            <Image
+                                                src="/user.svg"
+                                                alt="user"
+                                                width={28}
+                                                height={28}
+                                                className={styles.img2}
+                                                onClick={handleLoginClick}
+                                            />
+                                        )}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <LoginModal show={showLoginModal} handleClose={handleLoginClose} allClose={allClose} />
             </div>
         </>
     )

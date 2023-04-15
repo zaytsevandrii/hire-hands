@@ -102,7 +102,7 @@ const RegisterForm = () => {
                                 </Form.Group>
 
                                 <Form.Group controlId="password" className="mt-2">
-                                    <Form.Label>Пароль</Form.Label>
+                                    <Form.Label>Password</Form.Label>
                                     <Form.Control
                                         type="password"
                                         name="password"
@@ -115,7 +115,7 @@ const RegisterForm = () => {
                                 </Form.Group>
 
                                 <Form.Group controlId="confirmPassword" className="mt-2">
-                                    <Form.Label>Подтверждение Пароля</Form.Label>
+                                    <Form.Label>Confirm Password </Form.Label>
                                     <Form.Control
                                         type="password"
                                         name="confirmPassword"
