@@ -37,7 +37,7 @@ export default NextAuth({
             isAdmin: user.isAdmin,
           };
         }
-        throw new Error('Неправильный логин или пароль');
+        throw new Error('Incorrect login or password');
       },
     }),
   ],
