@@ -6,6 +6,7 @@ import logo from "../public/logo.png"
 import Hamburger from "./Hamburger"
 import LoginModal from "./LoginModal"
 import { signOut, useSession } from "next-auth/react"
+import DropDownLink from "./DropDownLink"
 
 const Navbar = () => {
     const [showLoginModal, setShowLoginModal] = useState(false)
@@ -38,6 +39,10 @@ const Navbar = () => {
             document.body.classList.remove("stop-scrolling")
         }
     }, [open])
+
+    const logoutClickHandler = () => {
+        signOut({ callbackUrl: "/" })
+    }
     return (
         <>
             <div className={`${open && "overlay-show"}`}></div>
@@ -79,7 +84,7 @@ const Navbar = () => {
                     <span style={{ fontSize: "18px" }}> 925Kazakhstan</span>
                 </div> */}
             </div>
-            <div className={styles.navbar} /* ref={modalRef} */>
+            <div className={styles.navbar}>
                 <div className="container py-1">
                     <div className="col-sm-12  ">
                         <div className="row">
@@ -109,7 +114,14 @@ const Navbar = () => {
                                                 onClick={handleLoginClick}
                                             />
                                         ) : session?.user ? (
-                                            session.user.name
+                                            <div className={styles.userName}>
+                                                <DropDownLink
+                                                    className={styles.dropdown}
+                                                    userName={session.user.name}
+                                                    logoutClickHandler={logoutClickHandler}
+                                                    session={session}
+                                                />
+                                            </div>
                                         ) : (
                                             <Image
                                                 src="/user.svg"

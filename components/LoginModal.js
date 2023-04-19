@@ -14,9 +14,9 @@ const LoginModal = ({ show, handleClose, allClose }) => {
     const { redirect } = router.query
 
     useEffect(()=>{
-        if(session?.user){
+      /*   if(session?.user){
             router.push(redirect||'/')
-        }
+        } */
     },[router,session,redirect])
     const handleSubmit = async (event) => {
         event.preventDefault()
