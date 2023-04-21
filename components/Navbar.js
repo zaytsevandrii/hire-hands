@@ -49,34 +49,37 @@ const Navbar = () => {
             <div id="mobile-menu" className={`mobile-main-menu ${open && "show-menu"}`}>
                 <ul>
                     <Link href="/goods/collections">
-                        <li onClick={closeModal}>Серебро</li>
+                        <li onClick={closeModal}>beauty</li>
                     </Link>
 
                     <Link href="/goods/bijouterie">
-                        <li onClick={closeModal}>Бижутерия </li>
+                        <li onClick={closeModal}>baking </li>
                     </Link>
 
                     <Link href="/goods/watch">
-                        <li onClick={closeModal}>Часы </li>
+                        <li onClick={closeModal}>cleaning </li>
                     </Link>
 
                     <Link href="/goods/bags">
-                        <li onClick={closeModal}>Сумки</li>
+                        <li onClick={closeModal}>restoring</li>
                     </Link>
                     <Link href="/goods/children-jewelry">
-                        <li onClick={closeModal}>Детские украшения</li>
+                        <li onClick={closeModal}>repairing</li>
                     </Link>
                     <Link href="/goods/scarves">
-                        <li onClick={closeModal}>Шарфы</li>
+                        <li onClick={closeModal}>pet sitting</li>
                     </Link>
                     <Link href="/goods/perfumery">
-                        <li onClick={closeModal}>Парфюмерия</li>
+                        <li onClick={closeModal}>handyman</li>
                     </Link>
                     <Link href="/goods/natural-stones">
-                        <li onClick={closeModal}>Натуральные камни</li>
+                        <li onClick={closeModal}>gardering</li>
                     </Link>
                     <Link href="/goods/new-product">
-                        <li onClick={closeModal}>Новинки</li>
+                        <li onClick={closeModal}>transportation</li>
+                    </Link>
+                    <Link href="/goods/new-product">
+                        <li onClick={closeModal}>automotive</li>
                     </Link>
                 </ul>
                 {/* <div className="mobile-menu-info">
