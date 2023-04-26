@@ -4,8 +4,8 @@ import db from "../../../../../utils/db"
 
 const handler = async (req, res) => {
     const session = await getSession({ req })
-    if (!session || (session && !session.user.isAdmin)) {
-        return res.status(401).send("админ авторизация обязательна!")
+    if (!session) {
+        return res.status(401).send("authorization is required!")
     }
 
     const { user } = session
@@ -32,18 +32,18 @@ const putHandler = async (req, res) => {
     const product = await Product.findById(req.query.id)
     if (product) {
         product.name = req.body.name
-        product.slug = req.body.slug
+        product.user = req.body.user
         product.price = req.body.price
         product.category = req.body.category
         product.image = req.body.image
-        product.countInStock = req.body.countInStock
+        product.contact = req.body.contact
         product.description = req.body.description
         await product.save()
         await db.disconnect()
-        res.send({ message: "Товар успешно обновлен" })
+        res.send({ message: "Post successfully created" })
     } else {
         await db.disconnect()
-        res.status(404).send({ message: "Товар не найден" })
+        res.status(404).send({ message: "Post not found" })
     }
 }
 
@@ -53,10 +53,10 @@ const deleteHandler = async (req, res) => {
     if (product) {
         await product.remove()
         await db.disconnect()
-        res.send({ message: "Товар успешно удален" })
+        res.send({ message: "Post deleted" })
     } else {
         await db.disconnect()
-        res.status(404).send({ message: "Товар не найден" })
+        res.status(404).send({ message: "Post not found" })
     }
 }
 

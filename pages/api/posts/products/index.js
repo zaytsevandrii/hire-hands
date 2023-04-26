@@ -28,12 +28,12 @@ const postHandler = async (req, res) => {
   await db.connect();
   const newProduct = new Product({
     name: 'имя',
-    slug: 'name-' + Math.random(),
+    user: 'name-' + Math.random(),
     image: '/images/ring1.jpg',
     price: 0,
     salePrice:0,
     category: 'Серебро',
-    countInStock: 0,
+    contact: 0000,
     description: 'описание',
   });
 
