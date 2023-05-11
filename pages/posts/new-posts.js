@@ -10,7 +10,7 @@ export default function NewPost() {
             const response = await axios.post("/api/posts", data)
             console.log(response.data)
         } catch (error) {
-            console.error(error)
+            console.error(error) 
         }
     }
 
